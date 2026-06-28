@@ -1,0 +1,14 @@
+D:\Programing\c# test game\mageblood\bin\Debug\net8.0\mageblood.exe
+D:\Programing\c# test game\mageblood\bin\Debug\net8.0\mageblood.deps.json
+D:\Programing\c# test game\mageblood\bin\Debug\net8.0\mageblood.runtimeconfig.json
+D:\Programing\c# test game\mageblood\bin\Debug\net8.0\mageblood.dll
+D:\Programing\c# test game\mageblood\bin\Debug\net8.0\mageblood.pdb
+D:\Programing\c# test game\mageblood\obj\Debug\net8.0\mageblood.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programing\c# test game\mageblood\obj\Debug\net8.0\mageblood.AssemblyInfoInputs.cache
+D:\Programing\c# test game\mageblood\obj\Debug\net8.0\mageblood.AssemblyInfo.cs
+D:\Programing\c# test game\mageblood\obj\Debug\net8.0\mageblood.csproj.CoreCompileInputs.cache
+D:\Programing\c# test game\mageblood\obj\Debug\net8.0\mageblood.dll
+D:\Programing\c# test game\mageblood\obj\Debug\net8.0\refint\mageblood.dll
+D:\Programing\c# test game\mageblood\obj\Debug\net8.0\mageblood.pdb
+D:\Programing\c# test game\mageblood\obj\Debug\net8.0\mageblood.genruntimeconfig.cache
+D:\Programing\c# test game\mageblood\obj\Debug\net8.0\ref\mageblood.dll
