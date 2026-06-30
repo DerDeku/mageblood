@@ -1,16 +1,19 @@
 public class Game
 {
-    public Player player { get; init; }
-
+    public Player Player { get; init; }
+    private World World;
     public Game()
     {
-        player = new Player();
+        Player = new Player();
         SetupGame();
         GenerateItem();
         Gameloop();
     }
     public void SetupGame()
     {
+        World = new("Bloouria");
+        Map prison = new("Prison", 5,5); // Level 1 - Prison 5x5
+        World.AddMap(prison);
     }
 
     public void Gameloop()
@@ -29,11 +32,11 @@ public class Game
                 break;
 
                 case "2":
-                    player.ShowStats();
+                    Player.ShowStats();
                 break;
 
                 case "3":
-                    player.RestoreRessources();
+                    Player.RestoreRessources();
                 break;
 
                 case "x":
@@ -56,9 +59,9 @@ public class Game
         equipment.ShowStats();
         Console.WriteLine("Equip Item y/n?");
         if (Console.ReadLine() == "y")
-            player.EquipItem(equipment);
+            Player.EquipItem(equipment);
         else
-            player.inventory.AddItem(equipment);
+            Player.inventory.AddItem(equipment);
         
     }
 
