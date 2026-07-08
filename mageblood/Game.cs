@@ -12,8 +12,7 @@ public class Game
     public void SetupGame()
     {
         World = new("Bloouria");
-        Map prison = new("Prison", 5,5); // Level 1 - Prison 5x5
-        World.AddMap(prison);
+        World.AddMap(MapGenerator.GenerateMap("Prison", 5,5, Map.Type.Dungeon1)); // Level 1 - Prison 5x5
     }
 
     public void Gameloop()

@@ -6,7 +6,7 @@ public abstract class Equpipable : Item
 
     public void AddStat(Stat newStat)
     {
-        if (stats.Count >= maxStats) { Error.Print(Error.Code.ItemHasTooManyStatsAlready); return; }
+        if (stats.Count >= maxStats) { Errors.Report(Errors.Code.ItemHasTooManyStatsAlready); return; }
         stats.Add(newStat);
     }
 

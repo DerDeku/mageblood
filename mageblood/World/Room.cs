@@ -1,10 +1,13 @@
+using Mageblood;
+
 class Room
 {
-    private HashSet<WorldHelpers.Directions> Doors;
+    public Direction Doors;
     private Type RoomType;
     private Activity? Activity;
     public World? EntranceOrigin { get; set; }
     public World? ExitDestination { get; set; }
+    public Coordinates Coordinates { get; set; }
     public enum Type
     {
         Empty,
@@ -14,19 +17,22 @@ class Room
     }
     public Dictionary<Type, string> RoomTypeSymbols = new()
     {
-        { Type.Empty, "" },
-        { Type.Activity, "" }, //TODO -> Continue here
+        { Type.Empty, "▄" },
+        { Type.Activity, "☼" },
+        { Type.MapEntrance, "◄"},
+        { Type.MapExit, "►"},
     };
 
-    public Room(Type roomType, HashSet<WorldHelpers.Directions> doors, Activity? activity = null)
+    public Room(Coordinates coordinates, Type roomType = Type.Empty, Direction? doors = null, Activity? activity = null)
     {
+        Coordinates = coordinates;
         RoomType = roomType;
-        Doors = doors;
+        Doors = doors ?? 0;
         if (roomType != Type.Activity && activity is not null || roomType == Type.Activity && activity is null)
-            Error.Print(Error.Code.RoomTypeMissMatchActivity);
+            Errors.Report(Errors.Code.RoomTypeDoesNotMatchActivity);
         Activity = activity;
     }
-    public void SetEntranceOrigin(World origin)
+    public void SetEntranceOrigin(World? origin = null)
     {
         EntranceOrigin = origin;
     }
@@ -36,10 +42,24 @@ class Room
         ExitDestination = destination;
     }
 
+    public void SetRoomType(Type type)
+    {
+        RoomType = type;
+    }
+
     public void ShowRoom()
     {
-        Console.Write($""); Console.Write($""); Console.Write($"   \n"); 
-        Console.Write($""); Console.Write($""); Console.Write($"   \n");
-        Console.Write($""); Console.Write($""); Console.Write($"   \n");
+        if (Doors.HasFlag(Direction.North | Direction.South)) Console.Write("║");
+        else if (Doors.HasFlag(Direction.West | Direction.East)) Console.Write("═");
+        else if (Doors.HasFlag(Direction.South | Direction.East)) Console.Write("╔");
+        else if (Doors.HasFlag(Direction.South | Direction.East | Direction.West)) Console.Write("╦");
+        else if (Doors.HasFlag(Direction.South | Direction.West)) Console.Write("╗");
+        else if (Doors.HasFlag(Direction.South | Direction.East | Direction.North)) Console.Write("╠");
+        else if (Doors.HasFlag(Direction.South | Direction.East | Direction.North | Direction.West)) Console.Write("╬");
+        else if (Doors.HasFlag(Direction.South | Direction.North | Direction.West)) Console.Write("╣");
+        else if (Doors.HasFlag(Direction.North | Direction.East)) Console.Write("╚");
+        else if (Doors.HasFlag(Direction.East | Direction.North | Direction.West)) Console.Write("╩");
+        else if (Doors.HasFlag(Direction.North | Direction.West)) Console.Write("╝");
+        else Console.WriteLine("□");
     }
 }

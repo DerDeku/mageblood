@@ -1,13 +1,10 @@
+namespace Mageblood;
 
-
-static class WorldHelpers
+[Flags]
+public enum Direction
 {
-    [Flags]
-    public enum Directions
-    {
-        North,
-        East,
-        South,
-        West
-    }
+    North,
+    East,
+    South,
+    West
 }

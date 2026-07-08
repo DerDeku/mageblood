@@ -18,7 +18,7 @@ public class Inventory
             inventory.Add(item);
             return null;
         }
-        Error.Print(Error.Code.InventoryIsFull);
+        Errors.Report(Errors.Code.InventoryIsFull);
         return item;
     }
 }
